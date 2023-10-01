@@ -13,8 +13,6 @@ class Solution:
 
         res = []
 
-        curr = ""
-
         def genP(op, cl, curr):
             if(op > 0 or cl > 0):
                 if(op == cl):
