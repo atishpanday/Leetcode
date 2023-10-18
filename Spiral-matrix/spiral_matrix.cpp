@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> spiral_matrix;
+        vector<vector<int>> spiral_matrix(n, vector<int> (n, 0));
 
         int total_el = n * n;
 
@@ -11,15 +11,18 @@ public:
         int curr_el = 1;
         int per_ind = 1;
 
-        while(curr_el < total_el) {
+        int per_tr = 4*(n - (2*per_ind - 1));
+
+        while(curr_el <= total_el) {
             spiral_matrix[i][j] = curr_el;
 
-            if(curr_el == 4*(n - (2*per_ind - 1))) {
+            if(curr_el == per_tr) {
                 top_lim++;
                 right_lim--;
                 bottom_lim--;
                 left_lim++;
                 per_ind++;
+                per_tr += 4*(n - (2*per_ind - 1));
             }
 
             if(i == top_lim && j < right_lim) {
