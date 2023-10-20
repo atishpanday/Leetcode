@@ -23,3 +23,16 @@ public:
         return curr_num_ways;
     }
 };
+
+// m = 3, n = 5
+//
+// 1 1 1 1 1
+// 1 2 3 4 5
+// 1 3 6 10 15
+
+// The idea is that, for a single row, m = 1, every cell is reachable in 1 way
+// When we add another row, then every cell in this row is reachable in k ways, where
+// k is the cell's column position.
+// When we add the number of paths of all the cells of the above 
+// row less than or equal to the current cell's column, we get the 
+// number of paths for the current cell.
